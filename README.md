@@ -1,14 +1,14 @@
 # ECJ examples
 
-(ECJ website)[https://cs.gmu.edu/~eclab/projects/ecj/]
+[ECJ website](https://cs.gmu.edu/~eclab/projects/ecj/)
 
-##Avalialable:
+## Avalialable:
 
-###Continuous Values
+### Continuous Values
 
 * Simple Hill-climber
 * Steepest Ascent Hill-climber
 
-###Integer Values
+### Integer Values
 
 * Simple GA for the MaxOnes problem
