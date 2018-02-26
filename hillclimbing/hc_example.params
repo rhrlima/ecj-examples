@@ -1,0 +1,72 @@
+# Simple Hill-climber example
+
+
+# Basic configurations for number of threads and seed
+breedthreads	= 1
+evalthreads		= 1
+seed.0			= 4357
+
+
+# Using the SingleStateEvolutionState instead of the SimpleEvolutionState
+state = ec.singlestate.SingleStateEvolutionState
+
+
+# Basic components for most algorithms
+pop		= ec.Population
+init	= ec.simple.SimpleInitializer
+finish	= ec.simple.SimpleFinisher
+eval	= ec.simple.SimpleEvaluator
+stat	= ec.simple.SimpleStatistics
+exch	= ec.simple.SimpleExchanger
+
+# For the HC we will use this SingleStateBreeder instead of the SimpleBreeder
+breed = ec.singlestate.SingleStateBreeder
+
+
+# Execution config
+checkpoint-prefix		= ec
+checkpoint-modulo		= 10000
+stats-modulo			= 10000
+exchange-modulo			= 10000
+quit-on-run-complete	= true
+stat.file				= $out.stat
+
+
+generations	= 100000
+
+
+breed.expanded-subpop-size.0		= 2
+breed.elite.0						= true
+
+
+pop.subpops							= 1
+pop.subpop.0						= ec.Subpopulation
+pop.subpop.0.size					= 1
+pop.subpop.0.duplicate-retries		= 2
+
+pop.subpop.0.species 				= ec.vector.FloatVectorSpecies
+pop.subpop.0.species.genome-size	= 100
+
+pop.subpop.0.species.pipe			= ec.vector.breed.VectorMutationPipeline
+pop.subpop.0.species.pipe.source.0	= ec.select.TopSelection
+
+
+# not used, but ECJ complains if it ins't set
+pop.subpop.0.species.crossover-type					= one
+
+pop.subpop.0.species.mutation-type					= polynomial
+pop.subpop.0.species.mutation-prob					= 0.01
+pop.subpop.0.species.mutation-distribution-index	= 20
+
+pop.subpop.0.species.alternative-polynomial-version	= false
+
+pop.subpop.0.species.fitness			= ec.simple.SimpleFitness
+pop.subpop.0.species.ind				= ec.vector.DoubleVectorIndividual
+pop.subpop.0.species.mutation-bounded	= true
+
+pop.subpop.0.species.min-gene =	-5.12
+pop.subpop.0.species.max-gene =	5.12
+
+
+eval.problem		= ec.app.ecsuite.ECSuite
+eval.problem.type	= sphere
