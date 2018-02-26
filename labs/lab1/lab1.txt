@@ -16,7 +16,7 @@ Teste diferentes combinações de parâmetros:
 
 * Execute cada configuração 10 vezes
 
-** No Steepest Ascent Hill-climbing, a única diferença é a quantidade de soluções geradas por iteração, tendo tamanho N > 1.
+** No Steepest Ascent Hill-climbing, a única diferença é a quantidade de soluções geradas por iteração, tendo tamanho N>1.
 Para modificar isso, atribua o valor N+1 a linha "breed.expanded-subpop-size.0"
 
 ** Não esqueça de prover seeds diferentes para cada execução
