@@ -4,7 +4,8 @@
 # Basic configurations for number of threads and seed
 breedthreads	= 1
 evalthreads		= 1
-seed.0			= 4357
+seed.0			= time
+#4357
 
 
 # Using the SingleStateEvolutionState instead of the SimpleEvolutionState
@@ -32,9 +33,12 @@ quit-on-run-complete	= true
 stat.file				= $out.stat
 
 
+# number of generations 
 generations	= 100000
 
 
+# N = 2 -> simple hill-climber
+# N > 2 -> steepest ascent hill-climber 
 breed.expanded-subpop-size.0		= 2
 breed.elite.0						= true
 
@@ -54,8 +58,11 @@ pop.subpop.0.species.pipe.source.0	= ec.select.TopSelection
 # not used, but ECJ complains if it ins't set
 pop.subpop.0.species.crossover-type					= one
 
+# Available mutation operators
+# reset, polynomial, gauss
 pop.subpop.0.species.mutation-type					= polynomial
 pop.subpop.0.species.mutation-prob					= 0.01
+pop.subpop.0.species.mutation-stdev					= 0.99
 pop.subpop.0.species.mutation-distribution-index	= 20
 
 pop.subpop.0.species.alternative-polynomial-version	= false
@@ -65,7 +72,7 @@ pop.subpop.0.species.ind				= ec.vector.DoubleVectorIndividual
 pop.subpop.0.species.mutation-bounded	= true
 
 pop.subpop.0.species.min-gene =	-5.12
-pop.subpop.0.species.max-gene =	5.12
+pop.subpop.0.species.max-gene =	 5.12
 
 
 eval.problem		= ec.app.ecsuite.ECSuite
