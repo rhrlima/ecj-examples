@@ -22,3 +22,8 @@
 > ec/examples/maxones
 
 * Simple GA for the MaxOnes problem
+
+## Running Instructions:
+
+Execute the following line from the root directory:
+> java ec.Evolve -file <my_parameters>.params
