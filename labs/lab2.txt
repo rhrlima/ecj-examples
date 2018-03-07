@@ -1,0 +1,15 @@
+A partir do arquivo de configuração para o Simulated Annealing
+
+
+Execute o algoritmo para as diferentes instâncias do Problema da Mochila, modificando os parâmetros para tentar encontrar resultados iguais ou proximos do ótimo conhecido.
+
+
+Elabore um mini relatório com as descobertas feitas:
+
+* Comente quais foram os parâmetros que produziram os melhores resultados.
+* Os parâmetros mudam para diferentes instâncias?
+* Quais parâmetros causam maior impacto na qualidade das soluções?
+* Reporte os resultados obtidos, faça o uso de gráficos e tabelas se necessário.
+
+
+obs: entregar até o fim da aula <ricardo.hrlima@gmail.com>

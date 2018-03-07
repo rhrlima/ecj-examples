@@ -23,7 +23,7 @@ quit-on-run-complete	= true
 stat.file				= $out.stat
 
 
-generations	= 100000
+generations	= 10000
 
 
 breed.expanded-subpop-size.0		= 2
@@ -37,7 +37,6 @@ pop.subpop.0.duplicate-retries		= 2
 
 
 pop.subpop.0.species 				= ec.vector.BitVectorSpecies
-pop.subpop.0.species.genome-size	= 500
 
 
 pop.subpop.0.species.pipe				= ec.breed.StubPipeline
@@ -45,24 +44,26 @@ pop.subpop.0.species.pipe.stub-source	= ec.select.AnnealedSelection
 pop.subpop.0.species.stub-source.cache	= true
 
 
-pop.subpop.0.species.pipe.stub-source.temperature 	= 50000.0
-pop.subpop.0.species.pipe.stub-source.cutdown 		= 0.995
-pop.subpop.0.species.pipe.source.0 					= ec.breed.FirstCopyPipeline
-pop.subpop.0.species.pipe.source.0.source.0 		= stub
-pop.subpop.0.species.pipe.source.0.source.1 		= ec.vector.breed.VectorMutationPipeline
-pop.subpop.0.species.pipe.source.0.source.1.source.0 = stub
+pop.subpop.0.species.pipe.stub-source.temperature 		= 3000.0
+pop.subpop.0.species.pipe.stub-source.cutdown 			= 0.995
+pop.subpop.0.species.pipe.source.0 						= ec.breed.FirstCopyPipeline
+pop.subpop.0.species.pipe.source.0.source.0 			= stub
+pop.subpop.0.species.pipe.source.0.source.1 			= ec.vector.breed.VectorMutationPipeline
+pop.subpop.0.species.pipe.source.0.source.1.source.0 	= stub
 
+#not used
+vector.species.crossover-type = one
 
-pop.subpop.0.species.mutation-prob 		= 0.01
-pop.subpop.0.species.mutation-type 		= reset
-pop.subpop.0.species.mutation-distribution-index = 21
-pop.subpop.0.species.alternative-polynomial-version = false
-
+pop.subpop.0.species.mutation-prob 						= 0.01
+pop.subpop.0.species.mutation-type 						= flip
 
 pop.subpop.0.species.fitness			= ec.simple.SimpleFitness
 pop.subpop.0.species.ind				= ec.vector.BitVectorIndividual
 pop.subpop.0.species.mutation-bounded	= true
 
 
-eval.problem			= ec.examples.knapsack.Knapsack
-eval.problem.instance 	= large_scale/knapPI_1_500_1000_1
+eval.problem = ec.examples.knapsack.Knapsack
+
+
+pop.subpop.0.species.genome-size	= 10
+eval.problem.instance 				= low-dimensional/f1_l-d_kp_10_269
