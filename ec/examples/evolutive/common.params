@@ -1,0 +1,56 @@
+breedthreads	= 1
+evalthreads		= 1
+seed.0			= time
+
+
+state	= ec.simple.SimpleEvolutionState
+
+
+pop		= ec.Population
+init	= ec.simple.SimpleInitializer
+finish	= ec.simple.SimpleFinisher
+breed	= ec.simple.SimpleBreeder
+eval	= ec.simple.SimpleEvaluator
+stat	= ec.simple.SimpleStatistics
+exch	= ec.simple.SimpleExchanger
+
+
+quit-on-run-complete	= true
+checkpoint				= false
+checkpoint-prefix		= ec
+checkpoint-modulo		= 10
+
+
+stat.file = $out.stat
+
+
+pop.subpops						= 1
+pop.subpop.0					= ec.Subpopulation
+pop.subpop.0.duplicate-retries	= 0
+
+
+pop.subpop.0.species			= ec.vector.FloatVectorSpecies
+pop.subpop.0.species.ind		= ec.vector.DoubleVectorIndividual
+pop.subpop.0.species.fitness	= ec.simple.SimpleFitness
+
+
+pop.subpop.0.species.pipe					= ec.vector.breed.VectorMutationPipeline
+pop.subpop.0.species.pipe.source.0			= ec.vector.breed.VectorCrossoverPipeline
+pop.subpop.0.species.pipe.source.0.source.1	= same
+
+
+pop.subpop.0.species.pipe.source.0.source.0	= ec.select.TournamentSelection
+select.tournament.size = 2
+
+
+pop.subpop.0.species.crossover-type	= one
+pop.subpop.0.species.mutation-type	= reset
+pop.subpop.0.species.mutation-prob	= 0.01
+
+
+eval.problem 		= ec.app.ecsuite.ECSuite
+eval.problem.type 	= rosenbrock
+
+
+vector.species.min-gene = -2.048
+vector.species.max-gene =  2.048

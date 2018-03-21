@@ -76,4 +76,4 @@ pop.subpop.0.species.max-gene =	 5.12
 
 
 eval.problem		= ec.app.ecsuite.ECSuite
-eval.problem.type	= sphere
+eval.problem.type	= rosenbrock

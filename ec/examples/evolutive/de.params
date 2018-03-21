@@ -1,0 +1,21 @@
+parent.0 = common.params
+
+eval = ec.de.DEEvaluator
+
+#-----------------------------------------------------------------
+
+generations	= 2000
+
+pop.subpop.0.size = 100
+pop.subpop.0.species.genome-size = 100
+
+breed = ec.de.DEBreeder
+
+breed.cr 		= 0.8
+breed.f 		= 0.2
+breed.f-noise 	= 0.1
+breed.pf 		= 0.5
+
+breed.out-of-bounds-retries = 10
+
+pop.subpop.0.species.mutation-bounded = true
