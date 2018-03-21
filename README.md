@@ -17,11 +17,16 @@
 * Simple Hill-climber
 * Steepest Ascent Hill-climber
 
+> ec/examples/evolutive
+
+* Genetic Algorithm for the Rosenbrock function
+* Differential Evolution for the Rosenbrock function
+
 ### Integer Values
 
 > ec/examples/maxones
 
-* Simple GA for the MaxOnes problem
+* Simple Genetic Algorithm for the MaxOnes problem
 
 ## Running Instructions:
 
