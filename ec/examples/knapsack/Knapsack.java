@@ -13,9 +13,9 @@ public class Knapsack extends Problem implements SimpleProblemForm {
 	
 	private static final String P_INSTANCE = "instance";
 	
-	private int profits[];
-	private int weights[];
-	private int maxWeight;
+	private float profits[];
+	private float weights[];
+	private float maxWeight;
 	
 	@Override
 	public void setup(final EvolutionState state, final Parameter base) {
@@ -36,7 +36,7 @@ public class Knapsack extends Problem implements SimpleProblemForm {
 		
 		BitVectorIndividual ind2 = (BitVectorIndividual)ind;
 
-		int sumProfit = 0, sumWeight = 0;
+		float sumProfit = 0.0f, sumWeight = 0.0f;
 		for (int i = 0; i < ind2.genome.length; i++) {
 			if (ind2.genome[i]) {
 				sumProfit += this.profits[i];
@@ -57,21 +57,22 @@ public class Knapsack extends Problem implements SimpleProblemForm {
 	
 	private void readInstance(EvolutionState state, InputStream stream) {
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(stream))) {
-			int nItems, wMax;
+			int nItems;
+			float wMax;
 			String temp[];
 			
 			temp = br.readLine().split(" ");
 			nItems	= Integer.parseInt(temp[0]);
-			wMax	= Integer.parseInt(temp[1]);
+			wMax	= Float.parseFloat(temp[1]);
 			
-			this.profits = new int[nItems];
-			this.weights = new int[nItems];
+			this.profits = new float[nItems];
+			this.weights = new float[nItems];
 			this.maxWeight = wMax;
 			
 			for (int i = 0; i < nItems; i++) {
 				temp = br.readLine().split(" ");
-				this.profits[i] = Integer.parseInt(temp[0]);
-				this.weights[i] = Integer.parseInt(temp[1]);
+				this.profits[i] = Float.parseFloat(temp[0]);
+				this.weights[i] = Float.parseFloat(temp[1]);
 			}
 			
 			br.close();
