@@ -1,0 +1,24 @@
+Laboratório 3:
+
+
+ec/examples/evolutive/
+	- common.params		Configurações comuns para ambos os algoritmos
+	- ga.params			Configurações específicas para o GA
+	- de.params			Configurações específicas para a DE
+
+
+A partir dos exemplos para o ECJ para um Algoritmo Genético (GA) e Evolução Diferencial (DE), execute os exemplos para o problema Rosenbrock (tamanho do genoma = 100)
+
+Execute experimentos realizando ajuste de parâmetros e elabore um mini relatório abordando:
+
+* O problema (brevemente)
+* Os parâmetros testados
+	* Número de experimentos
+	* População
+	* Operadores
+* Resultados obtidos de cada algoritmo
+* Comparação entre os dois algoritmos
+
+- consulte o manual do ECJ para conhecer as opções de operadores.
+
+obs: Entregar em pdf no email do professor cc pro monitor <ricardo.hrlima@gmail.com>
